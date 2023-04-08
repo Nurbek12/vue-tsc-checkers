@@ -79,12 +79,12 @@ export default defineComponent({
     const move = (i: number, ac?: boolean) => {
       if(gamemode.value !== null){
         socketCommand.movePiece(i, cs.value, ac!);
-        cs.value = -1;
       }else{
         [game[i], game[cs.value]] = [game[cs.value], game[i]]
         if(!ac) changeQueue()
         checkDamka(i);
       }
+      cs.value = -1;
     }
     const setmovexy = (i: number) => {
       if(queue.value !== game[i].c || (gamemode.value && gamemode.value != queue.value)) return
