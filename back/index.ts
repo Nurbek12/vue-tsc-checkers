@@ -24,8 +24,8 @@ class Game {
 let rooms: Game[] = []
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(express.static(join(__dirname, '../client/dist')))
-app.get('*', async (_, res) => res.sendFile(join(__dirname, '../client/dist/index.html')))
+app.use(express.static(join(__dirname, '../front/dist')))
+app.get('*', async (_, res) => res.sendFile(join(__dirname, '../front/dist/index.html')))
 
 
 io.on('connection', (socket: Socket) => {
